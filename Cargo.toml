@@ -1,0 +1,8 @@
+[package]
+name = "rich-phantoms"
+version = "0.1.0"
+authors = ["David McGillicuddy <contact@djmcgill.co.uk>"]
+edition = "2018"
+
+[dependencies]
+ghost = "0.1"
