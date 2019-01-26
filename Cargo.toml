@@ -6,3 +6,6 @@ edition = "2018"
 
 [dev-dependencies]
 compiletest_rs = { version = "0.3", features = ["stable"] }
+
+[features]
+unstable-test = []

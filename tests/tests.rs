@@ -30,3 +30,19 @@ fn run_pass() {
 
     compiletest::run_tests(&config);
 }
+
+#[cfg(feature = "unstable-test")]
+#[cfg_attr(feature = "unstable-test", test)]
+fn stability() {
+    let mut config = compiletest::Config {
+        mode: compiletest::common::Mode::RunPass,
+        src_base: std::path::PathBuf::from("tests/run-pass-stability"),
+        target_rustcflags: Some("-L target/debug -L target/debug/deps -Z force-unstable-if-unmarked".to_string()),
+        ..Default::default()
+    };
+
+    config.link_deps();
+    config.clean_rmeta();
+
+    compiletest::run_tests(&config);
+}
