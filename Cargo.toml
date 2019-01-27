@@ -5,6 +5,8 @@ authors = ["David McGillicuddy <contact@djmcgill.co.uk>"]
 edition = "2018"
 description = "Phantom types with control over variance and sync/sync inheritance"
 license = "MIT OR Apache-2.0"
+readme = "README.md"
+repository = "https://github.com/djmcgill/rich_phantoms"
 
 [dev-dependencies]
 compiletest_rs = { version = "0.3", features = ["stable"] }
