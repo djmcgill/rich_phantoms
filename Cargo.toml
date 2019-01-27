@@ -4,7 +4,7 @@ version = "0.1.0"
 authors = ["David McGillicuddy <contact@djmcgill.co.uk>"]
 edition = "2018"
 description = "Phantom types with control over variance and sync/sync inheritance"
-licence = "MIT OR Apache-2.0"
+license = "MIT OR Apache-2.0"
 
 [dev-dependencies]
 compiletest_rs = { version = "0.3", features = ["stable"] }
