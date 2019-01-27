@@ -11,11 +11,11 @@ This library provides phantom types which allow you to specify the variance and 
 Suggestions and contributions welcome!
 
 ## Example
-Here you can see that a non-send/sync inner type doesn\'t affect the wrapper type, and that the `'const` lifetime gets cast into a `'a` lifetime.
+Here you can see that a non-send/sync inner type doesn\'t affect the wrapper type, and that the `'static` lifetime gets cast into a `'a` lifetime.
 ```
-fn main() {
-    let x: PhantomCovariantAlwaysSendSync<*const ()> = PhantomData;
-    fn f<'a>(_: PhantomCovariantAlwaysSendSync<&'a ()>) {}
+fn main2() {
+    let x: PhantomCovariantAlwaysSendSync<&'static *const ()> = PhantomData;
+    fn f<'a>(_: PhantomCovariantAlwaysSendSync<&'a *const ()>) {}
     f(x);
     let _y: &(dyn Send + Sync) = &x;
 }
@@ -26,7 +26,7 @@ And here is the opposite example, a send/sync inner type and a contravariant, ne
 fn main() {
     fn s(_: PhantomContravariantNeverSendSync<&'static ()>) {}
     fn f<'a>() {
-        let x: PhantomContravariantAlwaysSendSync<&'a ()> = PhantomData;
+        let x: PhantomContravariantNeverSendSync<&'a ()> = PhantomData;
         // let _y: &(dyn Send + Sync) = &x; COMPILE ERROR
         s(x); // WORKS
     }
