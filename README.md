@@ -36,3 +36,18 @@ fn main() {
 There are tests for all the variants which prove the send/sync inheritance (including compile-fail tests when the phantom type should not be send/sync), as well as (positive) tests for the correct kind of variance.
 
 Additionally there is a feature-gated test which runs under `-Z force-unstable-if-unmarked`, `#![feature(staged_api)]`, and  `#![feature(const_fn)]`. To run this test use (on nightly): `cargo test --features unstable-test`.
+
+## License
+
+Licensed under either of
+
+ * Apache License, Version 2.0 ([LICENSE-APACHE](LICENSE-APACHE) or http://www.apache.org/licenses/LICENSE-2.0)
+ * MIT license ([LICENSE-MIT](LICENSE-MIT) or http://opensource.org/licenses/MIT)
+
+at your option.
+
+### Contribution
+
+Unless you explicitly state otherwise, any contribution intentionally submitted
+for inclusion in the work by you, as defined in the Apache-2.0 license, shall be dual licensed as above, without any
+additional terms or conditions.
