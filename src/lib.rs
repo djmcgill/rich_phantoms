@@ -8,6 +8,8 @@
 //! ## Example
 //! Here you can see that a non-send/sync inner type doesn\'t affect the wrapper type, and that the `'static` lifetime gets cast into a `'a` lifetime.
 //! ```
+//! use rich_phantoms::*;
+//! use std::marker::PhantomData;
 //! fn main2() {
 //!     let x: PhantomCovariantAlwaysSendSync<&'static *const ()> = PhantomData;
 //!     fn f<'a>(_: PhantomCovariantAlwaysSendSync<&'a *const ()>) {}
@@ -18,6 +20,8 @@
 //!
 //! And here is the opposite example, a send/sync inner type and a contravariant, never-inheriting phantom type - the `'a` is cast to the `'static` lifetime:
 //! ```
+//! use rich_phantoms::*;
+//! use std::marker::PhantomData;
 //! fn main() {
 //!     fn s(_: PhantomContravariantNeverSendSync<&'static ()>) {}
 //!     fn f<'a>() {
