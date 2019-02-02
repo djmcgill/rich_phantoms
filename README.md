@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.com/djmcgill/rich_phantoms.svg?branch=master)](https://travis-ci.com/djmcgill/rich_phantoms)
 # Rich Phantoms
 An implementation of phantom types in rust with control over variance and inheritance of send/sync.
 
@@ -13,6 +14,8 @@ Suggestions and contributions welcome!
 ## Example
 Here you can see that a non-send/sync inner type doesn\'t affect the wrapper type, and that the `'static` lifetime gets cast into a `'a` lifetime.
 ```
+use rich_phantoms::*;
+use std::marker::PhantomData;
 fn main2() {
     let x: PhantomCovariantAlwaysSendSync<&'static *const ()> = PhantomData;
     fn f<'a>(_: PhantomCovariantAlwaysSendSync<&'a *const ()>) {}
@@ -23,6 +26,8 @@ fn main2() {
 
 And here is the opposite example, a send/sync inner type and a contravariant, never-inheriting phantom type - the `'a` is cast to the `'static` lifetime:
 ```
+use rich_phantoms::*;
+use std::marker::PhantomData;
 fn main() {
     fn s(_: PhantomContravariantNeverSendSync<&'static ()>) {}
     fn f<'a>() {

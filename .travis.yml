@@ -1,0 +1,14 @@
+sudo: false
+language: rust
+
+rust:
+  - nightly
+  - stable
+  - beta
+  - 1.32.0
+
+matrix:
+  include:
+    - rust: nightly
+      script:
+        - cargo test --features unstable-test
